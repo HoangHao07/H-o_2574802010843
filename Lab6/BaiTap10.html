@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>MÁY TÍNH ĐƠN GIẢN</h2>
+
+    <label>Nhập số thứ nhất:</label>
+    <input type="number" id="so1">
+    <br><br>
+
+    <label>Nhập số thứ hai:</label>
+    <input type="number" id="so2">
+    <br><br>
+
+    <button onclick="tinhtoan('+')">Cộng</button>
+    <button onclick="tinhtoan('-')">Trừ</button>
+    <button onclick="tinhtoan('*')">Nhân</button>
+    <button onclick="tinhtoan('/')">Chia</button>
+
+    <p id="ketqua"></p>
+
+    <script>
+        function tinhtoan(pheptoan) {
+            let a = document.getElementById("so1").value;
+            let b = document.getElementById("so2").value;
+
+            if (a === "" || b === "") {
+                document.getElementById("ketqua").innerHTML =
+                    "Vui lòng nhập đủ hai số!";
+                return;
+            }
+
+            a = Number(a);
+            b = Number(b);
+            let kq;
+
+            if (pheptoan == '+') {
+                kq = a + b;
+            } else if (pheptoan == '-') {
+                kq = a - b;
+            } else if (pheptoan == '*') {
+                kq = a * b;
+            } else {
+                if (b == 0) {
+                    document.getElementById("ketqua").innerHTML =
+                        "Không thể chia cho 0!";
+                    return;
+                }
+                kq = a / b;
+            }
+
+            document.getElementById("ketqua").innerHTML =
+                "Kết quả: " + kq;
+        }
+    </script>
+</body>
+</html>

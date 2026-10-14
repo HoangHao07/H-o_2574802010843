@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đoán số may mắn</title>
+</head>
+<body>
+    <h2>TRÒ CHƠI ĐOÁN SỐ MAY MẮN</h2>
+    <label>Nhập số từ 1 đến 10:</label>
+    <input type="number" id="sodoan" min="1" max="10">
+    <br><br>
+    <button onclick="doanso()">Đoán số</button>
+    <p id="ketqua"></p>
+    <script>
+        function doanso() {
+            let sodoan = Number(document.getElementById("sodoan").value);
+            let somayman = Math.floor(Math.random() * 10) + 1;
+            if (document.getElementById("sodoan").value === "" ||
+                sodoan < 1 || sodoan > 10 ||
+                !Number.isInteger(sodoan)) {
+                document.getElementById("ketqua").innerHTML =
+                    "Vui lòng nhập số nguyên từ 1 đến 10!";
+            } else if (sodoan == somayman) {
+                document.getElementById("ketqua").innerHTML =
+                    "Chúc mừng! Bạn đã đoán đúng số " + somayman;
+            } else {
+                document.getElementById("ketqua").innerHTML =
+                    "Chưa may mắn! Số đúng là " + somayman;
+            }
+        }
+    </script>
+</body>
+</html>

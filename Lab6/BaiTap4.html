@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính tình yêu</title>
+</head>
+<body>
+    <h2>MÁY TÍNH TÌNH YÊU</h2>
+    <label>Nhập tên của bạn:</label>
+    <input type="text" id="tenban">
+    <br><br>
+    <label>Nhập tên người còn lại:</label>
+    <input type="text" id="tennguoi">
+    <br><br>
+    <button onclick="tinhtinhyeu()">Tính tình yêu</button>
+    <p id="ketqua"></p>
+    <script>
+        function tinhtinhyeu() {
+            let tenban = document.getElementById("tenban").value;
+            let tennguoi = document.getElementById("tennguoi").value;
+            if (tenban.trim() === "" || tennguoi.trim() === "") {
+                document.getElementById("ketqua").innerHTML =
+                    "Vui lòng nhập đầy đủ tên!";
+            } else {
+                let tile = Math.floor(Math.random() * 100) + 1;
+                let thongbao;
+                if (tile >= 80) {
+                    thongbao = "Rất hợp nhau!";
+                } else if (tile >= 50) {
+                    thongbao = "Có thể tìm hiểu thêm!";
+                } else {
+                    thongbao = "Hãy dành thời gian tìm hiểu nhau nhé!";
+                }
+                document.getElementById("ketqua").innerHTML =
+                    tenban + " và " + tennguoi +
+                    "<br>Tỷ lệ phù hợp: " + tile + "%" +
+                    "<br>" + thongbao;
+            }
+        }
+    </script>
+</body>
+</html>

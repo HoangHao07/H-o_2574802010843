@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>KIỂM TRA SỐ CHẴN - SỐ LẺ</h2>
+
+    <label>Nhập số nguyên:</label>
+    <input type="number" id="sonhap">
+    <br><br>
+
+    <button onclick="kiemtra()">Kiểm tra</button>
+    <p id="ketqua"></p>
+
+    <script>
+        function kiemtra() {
+            let so = Number(document.getElementById("sonhap").value);
+            if (document.getElementById("sonhap").value === "") {
+                document.getElementById("ketqua").innerHTML = "Vui lòng nhập số!";
+            } else if (so % 2 == 0) {
+                document.getElementById("ketqua").innerHTML = "Đây là số chẵn";
+            } else {
+                document.getElementById("ketqua").innerHTML = "Đây là số lẻ";
+            }
+        }
+    </script>
+</body>
+</html>

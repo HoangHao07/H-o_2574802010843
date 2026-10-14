@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>TRÒ CHƠI OẲN TÙ TÌ</h2>
+    <p>Hãy chọn một trong ba nút:</p>
+    <button onclick="choi('Đá')">Đá</button>
+    <button onclick="choi('Giấy')">Giấy</button>
+    <button onclick="choi('Kéo')">Kéo</button>
+    <p id="ketqua"></p>
+    <script>
+        function choi(nguoiChoi) {
+            let luaChon = ["Đá", "Giấy", "Kéo"];
+            let mayChon = luaChon[Math.floor(Math.random() * 3)];
+            let ketqua;
+
+            if (nguoiChoi == mayChon) {
+                ketqua = "Hòa!";
+            } else if (
+                (nguoiChoi == "Đá" && mayChon == "Kéo") ||
+                (nguoiChoi == "Giấy" && mayChon == "Đá") ||
+                (nguoiChoi == "Kéo" && mayChon == "Giấy")
+            ) {
+                ketqua = "Bạn thắng!";
+            } else {
+                ketqua = "Bạn thua!";
+            }
+
+            document.getElementById("ketqua").innerHTML =
+                "Bạn chọn: " + nguoiChoi +
+                "<br>Máy chọn: " + mayChon +
+                "<br>Kết quả: " + ketqua;
+        }
+    </script>
+</body>
+</html>
